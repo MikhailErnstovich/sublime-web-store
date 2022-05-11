@@ -1,4 +1,5 @@
 # sublime-web-store
+<b>(In developing)</b>
 
 Online web store project is based on Vue.js
 
