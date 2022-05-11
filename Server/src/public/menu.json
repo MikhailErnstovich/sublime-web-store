@@ -1,0 +1,66 @@
+[
+    {
+        "text": "Home",
+        "link": "/",
+        "items": [
+            {
+                "text": "Categories",
+                "link": "/categories"
+            },
+            {
+                "text": "Product",
+                "link": "#"
+            },
+            {
+                "text": "Cart",
+                "link": "#"
+            },
+            {
+                "text": "Check out",
+                "link": "#"
+            },
+            {
+                "text": "Contact",
+                "link": "#"
+            }
+        ]
+    },
+    {
+        "text": "Categories",
+        "link": "/categories",
+        "items": [
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            }
+        ]
+    },
+    {
+        "text": "Accessories",
+        "link": "#"
+    },
+    {
+        "text": "Offers",
+        "link": "#"
+    },
+    {
+        "text": "Contact",
+        "link": "#"
+    }
+]
