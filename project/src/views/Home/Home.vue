@@ -2,11 +2,7 @@
     <div class="super_container">
         <Header/>
         <SideMenu/>
-
-		<div class="home">
-            <Slider/>
-		</div>
-
+        <Slider/>
         <div class="avds">
 			<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 				<SmallAdvert/>
@@ -14,26 +10,13 @@
 			</div>
 		</div>
 
-		<div class="products">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<Catalog/>
-					</div>
-				</div>
-			</div>
-		</div>
+		<Catalog/>
+
 	</div>
 
-	<div class="avds_xl">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-                    <ExtraLargeAdvert/>
-				</div>
-			</div>
-		</div>
-	</div>
+
+    <ExtraLargeAdvert/>
+
     <IconGroup/>
 	
 	<NewsLetter />

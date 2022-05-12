@@ -38,5 +38,69 @@ export default {
 </script>
 
 <style>
+.header {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+.header_container {
+	width: 100%;
+	z-index: 1;
+	background: #FFFFFF;
+}
+.header_content {
+	width: 100%;
+	height: 130px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.header.scrolled .header_content {
+	height: 70px;
+}
 
+.header.scrolled .logo a {
+	font-size: 24px;
+}
+
+.header_extra
+{
+
+}
+.header_social {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	right: 60px;
+	z-index: 1;
+	margin-right: -5px;
+}
+.header_social ul li {
+	display: inline-block;
+}
+.header_social ul li:not(:last-child) {
+	margin-right: 18px;
+}
+.header_social ul li a i {
+	font-size: 16px;
+	color: #b5b5b5;
+	padding: 5px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.header_social ul li a i:hover {
+	color: #1b1b1b;
+}
 </style>

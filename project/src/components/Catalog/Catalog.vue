@@ -1,44 +1,52 @@
 <template>
-  <div class='catalog'>
-    <CatalogItem
-      v-for='item in items'
-      :key='item.id'
-      :item='item'
-      :stickerTypes='stickerTypes'
-      :imgURLTemplate='imgURLTemplate'
-      @addItem='addItem'
-    />
+  <div class="products">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="catalog">
+            <CatalogItem
+              v-for="item in items"
+              :key="item.id"
+              :item="item"
+              :stickerTypes="stickerTypes"
+              :imgURLTemplate="imgURLTemplate"
+              @addItem="addItem"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import CatalogItem from './CatalogItem.vue';
-import { mapState, mapGetters, mapActions } from 'vuex';
+import CatalogItem from "./CatalogItem.vue";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'Catalog',
+  name: "Catalog",
   components: { CatalogItem },
 
   data: function () {
     return {
       ready: false,
-      URL: '/api/catalog',
+      URL: "/api/catalog",
       imgURLTemplate:
-        'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
+        "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
     };
   },
 
   methods: {
     ...mapActions({
-      getCatalog: 'Catalog/getCatalog',
-      addItem: 'Cart/addItem'
+      getCatalog: "Catalog/getCatalog",
+      addItem: "Cart/addItem",
     }),
   },
 
   computed: {
     ...mapGetters({
-      items: 'Catalog/getItems',
-      stickerTypes: 'Catalog/getStickers',
+      items: "Catalog/getItems",
+      stickerTypes: "Catalog/getStickers",
     }),
   },
 
@@ -53,6 +61,13 @@ export default {
 </script>
 
 <style>
+.products {
+  width: 100%;
+  background: #ffffff;
+  padding-top: 99px;
+  z-index: 2;
+}
+
 .catalog {
   display: flex;
   flex-wrap: wrap;

@@ -31,5 +31,23 @@ export default {
 </script>
 
 <style>
-
+.avds_small
+{
+	width: calc((100% * 0.391) - 15px);
+	height: 100%;
+	padding: 30px;
+}
+.avds_small_inner
+{
+	width: 100%;
+	height: 100%;
+	border: solid 2px #FFFFFF;
+}
+.avds_small_content
+{
+	max-width: 250px;
+	padding-top: 57px;
+	padding-left: 31px;
+	padding-right: 30px;
+}
 </style>

@@ -14,8 +14,8 @@
 
 <script>
 export default {
-  name: 'IconBox',
-  props: ['item', 'template'],
+  name: "IconBox",
+  props: ["item", "template"],
   computed: {
     imgLink() {
       return this.template + this.item.link;
@@ -25,4 +25,26 @@ export default {
 </script>
 
 <style>
+.icon_box {
+  width: 100%;
+  text-align: center;
+}
+.icon_box_image {
+  width: 75px;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.icon_box_image img {
+  max-width: 100%;
+}
+.icon_box_title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1b1b1b;
+  margin-top: 33px;
+}
+.icon_box_text {
+  margin-top: 20px;
+}
 </style>

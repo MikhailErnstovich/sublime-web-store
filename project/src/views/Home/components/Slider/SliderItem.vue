@@ -33,5 +33,39 @@ export default {
 </script>
 
 <style>
-
+.home_slider_background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.home_slider_content_container {
+	position: absolute;
+	left: 0;
+	top: 32.3%;
+	width: 100%;
+}
+.home_slider_content {
+	max-width: 580px;
+}
+.home_slider_title {
+	font-size: 60px;
+	font-weight: 600;
+	color: #FFFFFF;
+	line-height: 1.2;
+}
+.home_slider_subtitle {
+	font-size: 14px;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 2.14;
+	margin-top: 22px;
+}
+.home_button {
+	margin-top: 40px;
+}
 </style>

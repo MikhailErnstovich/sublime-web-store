@@ -1,14 +1,16 @@
 <template>
-  <div class="home_slider_container">
-    <div class="owl-carousel owl-theme home_slider">
-      <SliderItem
-        v-for="item in items"
-        :key="item"
-        :template="URLtemplate"
-        :item="item"
-      />
+  <div class="home">
+    <div class="home_slider_container">
+      <div class="owl-carousel owl-theme home_slider">
+        <SliderItem
+          v-for="item in items"
+          :key="item"
+          :template="URLtemplate"
+          :item="item"
+        />
+      </div>
+      <SliderDots :items="items" />
     </div>
-    <SliderDots :items="items" />
   </div>
 </template>
 
@@ -58,4 +60,27 @@ export default {
 </script>
 
 <style>
+
+.home {
+	width: 100%;
+	height: 950px;
+	background: #FFFFFF;
+	z-index: 2;
+}
+.home_slider_container {
+	width: 100%;
+	height: 100%;
+	/* padding-top: 130px; */
+	/* padding-left: 60px;
+	padding-right: 60px; */
+	padding-bottom: 30px;
+}
+
+.owl-theme .owl-dots {
+	display: none;
+}
+.fadeIn {
+	animation-delay: 1000ms;
+}
+
 </style>

@@ -72,6 +72,42 @@ export default {
 </script>
 
 <style>
+.shopping_cart {
+	display: inline-block;
+}
+.shopping_cart a svg {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.shopping_cart a:hover svg,
+.shopping_cart a:hover div {
+	fill: #e95a5a;
+	color: #e95a5a;
+}
+.shopping_cart a div {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	font-weight: 500;
+	color: #1b1b1b;
+	margin-left: 13px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.shopping_cart a div span {
+	margin-left: 4px;
+}
+
 #cartToggle {
   display: flex;
   justify-content: space-around;

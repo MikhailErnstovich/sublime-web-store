@@ -30,5 +30,29 @@ export default {
 </script>
 
 <style>
-
+.search {
+	display: inline-block;
+	margin-left: 51px;
+	cursor: pointer;
+	vertical-align: sub;
+	-webkit-transform: translateY(-1px);
+	-moz-transform: translateY(-1px);
+	-ms-transform: translateY(-1px);
+	-o-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+.search_icon {
+	width: 13px;
+	height: 13px;
+}
+.search_icon svg {
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.search_icon:hover svg {
+	fill: #e95a5a;
+}
 </style>

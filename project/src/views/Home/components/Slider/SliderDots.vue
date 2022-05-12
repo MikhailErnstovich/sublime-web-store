@@ -34,4 +34,23 @@ export default {
 </script>
 
 <style>
+
+.home_slider_dots_container {
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	width: 100%;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+.home_slider_dots {
+	position: absolute;
+	left: 15px;
+	bottom: 56px;
+}
+.home_slider_custom_dots {
+
+}
 </style>
