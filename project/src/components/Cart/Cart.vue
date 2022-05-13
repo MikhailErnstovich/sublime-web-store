@@ -74,6 +74,7 @@ export default {
 <style>
 .shopping_cart {
 	display: inline-block;
+  vertical-align: bottom;
 }
 .shopping_cart a svg {
 	display: inline-block;
