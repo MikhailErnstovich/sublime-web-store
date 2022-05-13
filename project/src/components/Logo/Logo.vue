@@ -21,4 +21,9 @@ export default {
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
+@media only screen and (max-width: 575px) {
+	.logo a {
+		font-size: 18px;
+	}
+}
 </style>

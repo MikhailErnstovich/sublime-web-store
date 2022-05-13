@@ -53,6 +53,5 @@ export default {
   background: #ffffff;
   z-index: 2;
 }
-.icon_box_row {
-}
+
 </style>

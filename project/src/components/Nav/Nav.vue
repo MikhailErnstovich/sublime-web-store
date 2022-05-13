@@ -92,4 +92,22 @@ export default {
 .main_nav ul li.active::after {
 	color: #1b1b1b;
 }
+@media only screen and (max-width: 1199px) {
+	.main_nav {
+		margin-left: 50px;
+	}
+	.search {
+		margin-left: 25px;
+	}
+	.main_nav > ul > li:not(:last-child) {
+		margin-right: 40px;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.main_nav	{
+		display: none;
+	}
+}
+
 </style>

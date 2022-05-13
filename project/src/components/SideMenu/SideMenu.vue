@@ -226,4 +226,19 @@ export default {
 	color: #1b1b1b;
 	padding: 5px;
 }
+@media only screen and (max-width: 575px) {
+	.menu {
+		width: 100vw;
+		right: -100vw;
+	}
+	.menu_container {
+		padding-top: 80px;
+	}
+	.page_menu_item > a,
+	.page_menu_selection li a {
+		font-size: 13px;
+		height: 40px;
+		line-height: 40px;
+	}
+}
 </style>

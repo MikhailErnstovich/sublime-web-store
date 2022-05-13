@@ -24,4 +24,9 @@ export default {
 	font-size: 18px;
 	color: #1b1b1b;
 }
+@media only screen and (max-width: 991px) {
+	.hamburger	{
+		display: inline-block;
+	}
+}
 </style>

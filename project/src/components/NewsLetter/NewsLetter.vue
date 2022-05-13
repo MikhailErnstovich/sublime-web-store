@@ -130,4 +130,16 @@ export default {
 .newsletter_button:hover span {
   color: #ffffff;
 }
+@media only screen and (max-width: 575px) {
+	.newsletter_title {
+		font-size: 24px;
+	}
+	.newsletter_button {
+		width: 128px;
+		height: 41px;
+	}
+	.newsletter_button span {
+		font-size: 13px;
+	}
+}
 </style>

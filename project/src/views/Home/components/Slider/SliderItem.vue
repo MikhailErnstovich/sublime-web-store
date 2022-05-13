@@ -68,4 +68,34 @@ export default {
 .home_button {
 	margin-top: 40px;
 }
+@media only screen and (max-width: 991px) {
+	.home_slider_title	{
+		font-size: 48px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.home_slider_content {
+		max-width: 100%;
+	}
+}
+@media only screen and (max-width: 575px) {
+	.home_slider_title {
+		font-size: 24px;
+	}
+	.home_slider_subtitle {
+		font-size: 13px;
+		margin-top: 15px;
+	}
+	.button {
+		width: 148px;
+		height: 41px;
+	}
+	.button a {
+		font-size: 13px;
+		line-height: 37px;
+	}
+	.home_button {
+		margin-top: 32px;
+	}
+}
 </style>

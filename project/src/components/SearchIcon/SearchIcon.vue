@@ -55,4 +55,10 @@ export default {
 .search_icon:hover svg {
 	fill: #e95a5a;
 }
+
+@media only screen and (max-width: 991px) {
+	.search	{
+		display: none;
+	}
+}
 </style>

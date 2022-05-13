@@ -105,4 +105,14 @@ export default {
 .product_hot {
   background: #1b1b1b;
 }
+@media only screen and (max-width: 991px) {
+	.product	{
+		width: calc((100% - 30px) / 2);
+	}
+}
+@media only screen and (max-width: 575px) {
+	.product {
+		width: 100%;
+	}
+}
 </style>

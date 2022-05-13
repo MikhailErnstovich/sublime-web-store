@@ -47,4 +47,26 @@ export default {
 .icon_box_text {
   margin-top: 20px;
 }
+@media only screen and (max-width: 991px) {
+	.icon_box_col:not(:last-child)	{
+		margin-bottom: 60px;
+	}
+	.icon_box	{
+		padding-left: 80px;
+		padding-right: 80px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.icon_box {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.icon_box	{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
 </style>

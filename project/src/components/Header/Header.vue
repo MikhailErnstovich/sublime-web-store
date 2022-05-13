@@ -68,10 +68,6 @@ export default {
 	font-size: 24px;
 }
 
-.header_extra
-{
-
-}
 .header_social {
 	position: absolute;
 	top: 50%;
@@ -103,4 +99,45 @@ export default {
 .header_social ul li a i:hover {
 	color: #1b1b1b;
 }
+
+@media only screen and (max-width: 1600px) {
+	.header_social
+	{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.header_container {
+		padding-left: 45px;
+		padding-right: 45px;
+	}
+	.header_container .container {
+		max-width: 100%;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.header_container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.header_social {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.header_container {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.header_content {
+		height: 70px;
+	}
+	.header.scrolled .logo a {
+		font-size: 18px;
+	}
+}
+
 </style>

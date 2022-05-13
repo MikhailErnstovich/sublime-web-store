@@ -50,7 +50,15 @@ export default {
 	left: 15px;
 	bottom: 56px;
 }
-.home_slider_custom_dots {
-
+@media only screen and (max-width: 991px) {
+	.home_slider_dots_container	{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.home_slider_dots_container {
+		display: none;
+	}
 }
 </style>

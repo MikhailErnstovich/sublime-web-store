@@ -98,4 +98,25 @@ export default {
 .footer_social ul li a i:hover {
   color: #ffffff;
 }
+@media only screen and (max-width: 991px) {
+	.footer_overlay	{
+		height: 200px;
+	}
+	.footer_content	{
+		height: 200px;
+	}
+	.footer_logo,
+	.footer_social	{
+		text-align: center;
+		width: 100%;
+	}
+	.footer_social	{
+		margin-top: 21px;
+	}
+}
+@media only screen and (max-width: 575px) {
+	.footer_logo a {
+		font-size: 24px;
+	}
+}
 </style>

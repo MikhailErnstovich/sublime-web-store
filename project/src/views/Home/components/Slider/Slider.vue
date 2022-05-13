@@ -82,5 +82,28 @@ export default {
 .fadeIn {
 	animation-delay: 1000ms;
 }
+@media only screen and (max-width: 991px) {
+	.home_slider_container	{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.home_slider_container {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
 
+@media only screen and (max-width: 575px) {
+	.home {
+		height: 100vh;
+	}
+	.home_slider_container {
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
 </style>
