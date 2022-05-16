@@ -38,6 +38,7 @@ export default {
       URL: '/api/cart',
       imgURLTemplate:
         'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
+      interval: null,
     };
   },
   methods: {
@@ -63,11 +64,16 @@ export default {
   async created() {
     try {
       await this.getCart();
+      this.interval = setInterval(() => this.getCart(), 10000)
     } 
     catch (err) {
       throw err;
     }
   },
+  beforeUnmount() {
+    window.clearInterval(this.interval);
+    this.interval = null;
+  }
 };
 </script>
 

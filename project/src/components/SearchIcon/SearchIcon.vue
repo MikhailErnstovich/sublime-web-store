@@ -1,5 +1,5 @@
 <template>
-    <div class="search">
+    <div class="search" @click="toggleSearch">
         <div class="search_icon">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -24,8 +24,14 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from "vuex";
 export default {
-    name: 'SearchIcon'
+    name: 'SearchIcon',
+    methods: {
+        ...mapActions({
+            toggleSearch: "Search/toggleSearch",
+        }),
+    },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class='search_panel trans_300'>
+    <div class='search_panel trans_300' :class="{ active: searchToggle }">
         <div class='container'>
             <div class='row'>
                 <div class='col'>
@@ -15,8 +15,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-    name: 'SearchPanel'
+    name: 'SearchPanel',
+	computed: {
+		...mapGetters({
+			searchToggle: "Search/searchToggle"
+		}),
+	}
 }
 </script>
 

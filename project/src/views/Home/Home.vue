@@ -2,7 +2,7 @@
     <div class="super_container">
         <Header/>
         <SideMenu/>
-        <Slider/>
+        <CarouselSlider/>
         <div class="avds">
 			<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
 				<SmallAdvert/>
@@ -36,10 +36,11 @@ import Footer from '@components/Footer/Footer.vue';
 import IconGroup from '@components/IconGroup/IconGroup.vue';
 import Slider from './components/Slider/Slider.vue';
 import NewsLetter from '@components/NewsLetter/NewsLetter.vue';
+import CarouselSlider from '@components/Carousel/CarouselSlider.vue';
 
 export default {
     name: 'Home',
-    components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, Slider, NewsLetter }
+    components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, Slider, NewsLetter, CarouselSlider}
 }
 </script>
 
