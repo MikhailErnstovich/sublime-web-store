@@ -14,6 +14,7 @@
 <script>
 import NavSubMenu from './NavSubMenu.vue';
 import { nav } from '@api';
+import { mapState, mapGetters, mapActions } from "vuex";
 
 
 export default {
@@ -22,28 +23,29 @@ export default {
   data: function () {
     return {
       URL: '/api/menu',
-      container: null,
       items: [],
       ready: false
     };
   },
   methods: {
-    async getData() {
-      try {
-        const data = await nav.getNav();
-        this.items = data;
-      } catch (err) {
-        throw err;
-      } finally {
-        this.ready = !!this.items.length;
-      }
-    },
+    ...mapActions({
+      getNav: "Nav/getNav",
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      navItems: "Nav/navItems",
+    }),
   },
   async created() {
     try {
-      await this.getData();
+      await this.getNav();
+      this.items = this.navItems;
     } catch (err) {
-      console.warn(err);
+      throw err;
+    }
+    finally {
+      this.ready = !!this.items.length;
     }
   },
 };

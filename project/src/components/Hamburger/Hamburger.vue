@@ -1,10 +1,18 @@
 <template>
-  <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+  <div class="hamburger" @click="toggleSideMenu">
+	  <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-    name: 'Hamburger'
+    name: 'Hamburger',
+	methods: {
+		...mapActions({
+			toggleSideMenu: "SideMenu/toggleSideMenu"
+		}),
+	}
 }
 </script>
 

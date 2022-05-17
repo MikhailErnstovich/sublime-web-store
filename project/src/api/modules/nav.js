@@ -2,7 +2,7 @@ import instance from '@api/core';
 
 const url = '/nav';
 
-export const nav= {
+export const nav = {
   async getNav() {
     try {
       const data = await instance({ url });

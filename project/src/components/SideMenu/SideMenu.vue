@@ -1,61 +1,20 @@
 <template>
-  		<div class="menu menu_mm trans_300">
-			<div class="menu_container menu_mm">
+  		<div class="menu trans_300" :class="{ active: sideMenuToggle }" v-if="sideMenuItems">
+			<div class="menu_container">
 				<div class="page_menu_content">
 
-					<div class="page_menu_search menu_mm">
+					<div class="page_menu_search">
 						<form action="#">
-							<input type="search" required="required" class="page_menu_search_input menu_mm"
+							<input type="search" required="required" class="page_menu_search_input"
 								placeholder="Search for products...">
 						</form>
 					</div>
-					<ul class="page_menu_nav menu_mm">
-						<li class="page_menu_item has-children menu_mm">
-							<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
-							<ul class="page_menu_selection menu_mm">
-								<li class="page_menu_item menu_mm">
-									<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="product.html">Product<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="cart.html">Cart<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="checkout.html">Checkout<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="contact.html">Contact<i class="fa fa-angle-down"></i></a>
-								</li>
-							</ul>
-						</li>
-						<li class="page_menu_item has-children menu_mm">
-							<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
-							<ul class="page_menu_selection menu_mm">
-								<li class="page_menu_item menu_mm">
-									<a href="categories.html">Category<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="categories.html">Category<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="categories.html">Category<i class="fa fa-angle-down"></i></a>
-								</li>
-								<li class="page_menu_item menu_mm">
-									<a href="categories.html">Category<i class="fa fa-angle-down"></i></a>
-								</li>
-							</ul>
-						</li>
-						<li class="page_menu_item menu_mm">
-							<a href="index.html">Accessories<i class="fa fa-angle-down"></i></a>
-						</li>
-						<li class="page_menu_item menu_mm">
-							<a href="#">Offers<i class="fa fa-angle-down"></i></a>
-						</li>
-						<li class="page_menu_item menu_mm">
-							<a href="contact.html">Contact<i class="fa fa-angle-down"></i></a>
-						</li>
+
+					<ul class="page_menu_nav">
+						<SideSubMenu v-for="item in sideMenuItems"
+							:key="item.link"
+							:subMenu="item"
+						/>
 					</ul>
 				</div>
 			</div>
@@ -70,21 +29,30 @@
 </template>
 
 <script>
+import SideSubMenu from './SideSubMenu.vue';
 import CloseBtn from './CloseBtn.vue';
 import Socials from '../Socials/Socials.vue'
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
     name: 'SideMenu',
-    components: { CloseBtn, Socials },
+    components: { CloseBtn, Socials, SideSubMenu },
     data: function() {
         return {
-            btnType: 'menu_close'
+            btnType: 'menu_close',
         }
-    }
+    },
+	computed: {
+		...mapGetters({
+			sideMenuToggle: "SideMenu/sideMenuToggle",
+			sideMenuItems: "Nav/navItems"
+		}),
+	},
 }
 </script>
 
 <style>
+
 .menu {
 	position: fixed;
 	top: 0;
@@ -117,10 +85,6 @@ export default {
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
-.page_menu_nav
-{
-
-}
 .page_menu_search_input {
 	width: 100%;
 	height: 40px;
@@ -132,7 +96,6 @@ export default {
 .page_menu_item {
 	display: block;
 	position: relative;
-	vertical-align: middle;
 }
 .page_menu_nav > li {
 	border-bottom: solid 1px rgba(0,0,0,0.2);
@@ -163,7 +126,6 @@ export default {
 .page_menu_selection {
 	margin: 0;
 	width: 100%;
-	height: 0px;
 	overflow: hidden;
 	z-index: 1;
 }
