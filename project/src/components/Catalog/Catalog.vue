@@ -96,4 +96,9 @@ export default {
   background-color: #fff;
   color: #1b1b1b;
 }
+@media only screen and (max-width: 575px) {
+  .products {
+    padding-top: 30px;
+  }
+}
 </style>

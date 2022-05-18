@@ -1,15 +1,13 @@
 <template>
   <div class="home">
     <div class="home_slider_container">
-      <!-- <carousel class="home_slider" 
-        :items-to-show="1" 
-        :autoplay="2000" 
-        :pauseAutoplayOnHover="true" 
-        :wrapAround="true"
-        :transition="1000"
-      > -->
         <carousel class="home_slider" 
-        :items-to-show="1">
+          :items-to-show="1"
+          :autoplay="3000" 
+          :pauseAutoplayOnHover="true" 
+          :wrapAround="true"
+          :transition="1000"
+        >
         <slide v-for="slide in items" :key="slide">
             <div class="home_slider_background"
               style="background-image: url('https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/home_slider_1.jpg');">
@@ -88,10 +86,9 @@ export default {
 .home_slider_container {
   width: 100%;
   height: 100%;
-  /* padding-top: 130px;  */
   padding-left: 60px;
 	padding-right: 60px;
-  /* padding-bottom: 30px; */
+  margin-top: 130px;
 }
 
 .home_slider_background {
@@ -174,9 +171,11 @@ export default {
 @media only screen and (max-width: 575px) {
   .home {
     height: 100vh;
+    margin-bottom: 30px;
   }
   .home_slider_container {
     padding: 0;
+    margin-top: 70px;
   }
   .home_slider_content {
     height: 100vh;

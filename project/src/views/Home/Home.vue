@@ -34,13 +34,12 @@ import SideMenu from '@components/SideMenu/SideMenu.vue';
 import Header from '@components/Header/Header.vue';
 import Footer from '@components/Footer/Footer.vue';
 import IconGroup from '@components/IconGroup/IconGroup.vue';
-import Slider from './components/Slider/Slider.vue';
 import NewsLetter from '@components/NewsLetter/NewsLetter.vue';
 import CarouselSlider from '@components/Carousel/CarouselSlider.vue';
 
 export default {
     name: 'Home',
-    components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, Slider, NewsLetter, CarouselSlider}
+    components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, NewsLetter, CarouselSlider}
 }
 </script>
 
