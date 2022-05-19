@@ -13,15 +13,7 @@
             },
             {
                 "text": "Cart",
-                "link": "#"
-            },
-            {
-                "text": "Check out",
-                "link": "#"
-            },
-            {
-                "text": "Contact",
-                "link": "#"
+                "link": "/cart"
             }
         ]
     },
