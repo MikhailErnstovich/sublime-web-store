@@ -20,6 +20,18 @@ server.get('/:comp', async (req, res) => {
     }
 });
 
+server.get('/catalog/:id', async (req, res) => {
+    const path = './src/public/catalog.json';
+    const id = req.params.id;
+    try {
+        const catalog = await reader(path, options);
+        const result = catalog.items.find(el => el.id === +id);
+        res.json(result);
+    } catch (err) {
+        throw err;
+    }
+});
+
 server.delete('/cart/:id', async (req, res) => {
     const path = './src/public/cart.json';
     try {

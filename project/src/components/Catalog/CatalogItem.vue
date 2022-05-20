@@ -1,8 +1,8 @@
 <template>
   <div class="product">
-    <div class="product_image">
+    <a class="product_image" @click="$router.push(`/catalog/${item.id}`)">
       <img :src="imgURLTemplate + item.imgFileName" />
-    </div>
+    </a>
     <div
       class="product_extra"
       :class="`product_` + stickerTypes[item.sticker]"

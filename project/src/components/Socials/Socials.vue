@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span v-if="text">{{ text }}</span>
     <ul>
       <li>
         <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
@@ -20,6 +21,7 @@
 <script>
 export default {
     name: 'Socials',
+    props: ['text']
 };
 </script>
 

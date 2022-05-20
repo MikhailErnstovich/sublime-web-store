@@ -8,10 +8,6 @@
                 "link": "/categories"
             },
             {
-                "text": "Product",
-                "link": "#"
-            },
-            {
                 "text": "Cart",
                 "link": "/cart"
             }

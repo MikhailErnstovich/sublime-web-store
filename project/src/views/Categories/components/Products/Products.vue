@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import Catalog from '../../../../components/Catalog/Catalog.vue';
+import Catalog from '@components/Catalog/Catalog.vue';
 export default {
     name: 'Products',
     components: { Catalog }

@@ -2,15 +2,18 @@
     "items": [
         {
             "imgFileName": "product_1.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "1",
             "link": "categories.html",
             "title": "Smart Phone 1",
             "price": 100,
+            "discount": 101,
             "id": 1,
             "amount": 1
         },
         {
             "imgFileName": "product_2.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
             "link": "categories.html",
             "title": "Smart Phone 2",
@@ -20,15 +23,18 @@
         },
         {
             "imgFileName": "product_3.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
             "link": "categories.html",
             "title": "Smart Phone 3",
             "price": 300,
+            "discount": 800,
             "id": 3,
             "amount": 1
         },
         {
             "imgFileName": "product_4.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
             "link": "categories.html",
             "title": "Smart Phone 4",
@@ -38,6 +44,7 @@
         },
         {
             "imgFileName": "product_5.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
             "link": "categories.html",
             "title": "Smart Phone 5",
@@ -47,15 +54,18 @@
         },
         {
             "imgFileName": "product_6.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "3",
             "link": "categories.html",
             "title": "Smart Phone 6",
             "price": 600,
+            "discount": 650,
             "id": 6,
             "amount": 1
         },
         {
             "imgFileName": "product_7.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
             "link": "categories.html",
             "title": "Smart Phone 7",
@@ -65,10 +75,12 @@
         },
         {
             "imgFileName": "product_8.jpg",
+            "views": ["product_1.jpg","product_2.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
             "link": "categories.html",
             "title": "Smart Phone 8",
             "price": 800,
+            "discount": 1000,
             "id": 8,
             "amount": 1
         }

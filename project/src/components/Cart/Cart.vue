@@ -121,6 +121,7 @@ export default {
   width: calc(20px + 5em);
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 .cart__icon {

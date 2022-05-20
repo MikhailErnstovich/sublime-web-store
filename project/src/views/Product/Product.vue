@@ -1,0 +1,392 @@
+<template>
+  
+<div class="super_container">
+    <Header />
+    <SideMenu />
+	  <div class="product_details">
+		<div class="container">
+			<div class="row details_row">
+
+				<!-- Product Image -->
+				<div class="col-lg-6">
+					<ProductGallery :product="product"/>
+				</div>
+				
+
+				<!-- Product Content -->
+				<div class="col-lg-6">
+					<div class="details_content">
+						<div class="details_name">{{ product.title }}</div>
+						<div class="details_discount" v-if="product.discount">$ {{ product.discount }}</div>
+						<div class="details_price">${{ product.price }}</div>
+
+						<!-- In Stock -->
+						<div class="in_stock_container">
+							<div class="availability">Availability:</div>
+							<span>In Stock</span>
+						</div>
+						<div class="details_text">
+							<p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua. Phasellus id nisi quis
+                                justo tempus mollis sed et dui. In hac habitasse platea dictumst.
+                                Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris
+                                consequat nisi ut mauris efficitur lacinia.
+                            </p>
+						</div>
+
+						<!-- Product Quantity -->
+						<div class="product_quantity_container">
+							<div class="product_quantity clearfix">
+								<span>Qty</span>
+								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+								<div class="quantity_buttons">
+									<div id="quantity_inc_button" class="quantity_inc quantity_control" data-qty="1">
+                                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                                    </div>
+									<div id="quantity_dec_button" class="quantity_dec quantity_control" data-qty="-1">
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    </div>
+								</div>
+							</div>
+							<div class="button cart_button"><a href="#">Add to cart</a></div>
+						</div>
+                        <Socials class="details_share" :text="'Share:'"/>
+					</div>
+				</div>
+			</div>
+
+			<div class="row description_row">
+				<div class="col">
+					<div class="description_title_container">
+						<div class="description_title">Description</div>
+						<div class="reviews_title">
+                            <a href="#">Reviews <span>(1)</span></a>
+                        </div>
+					</div>
+					<div class="description_text">
+						<p>
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                            sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui.
+                            In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. 
+                            Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.
+                        </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <NewsLetter />
+	<Footer />
+</div>
+</template>
+
+<script>
+import Footer from '@components/Footer/Footer.vue';
+import Header from '@components/Header/Header.vue';
+import SideMenu from '@components/SideMenu/SideMenu.vue';
+import NewsLetter from '@components/NewsLetter/NewsLetter.vue';
+import Socials from '@components/Socials/Socials.vue';
+import ProductGallery from './components/ProductGallery.vue';
+
+import { mapState, mapGetters, mapActions } from "vuex";
+export default {
+    name: 'Product',
+    components: { Footer, Header, SideMenu, NewsLetter, Socials, ProductGallery },
+	methods: {
+		...mapActions({
+			fetchProduct: 'Catalog/getProduct',
+		}),
+	},
+	computed: {
+		...mapGetters({
+			product: 'Catalog/getProduct',
+		}),	
+	},
+	async created() {
+		try {
+			const data = await this.fetchProduct(this.$route.params.id);
+		}
+		catch (err) {
+			throw err;
+		}
+
+	}	
+}
+</script>
+
+<style>
+/*********************************
+6. Product Details
+*********************************/
+
+.product_details {
+	width: 100%;
+	margin-top: 130px;
+	background: #FFFFFF;
+	z-index: 2;
+}
+.details_row {
+	margin-top: 95px;
+}
+.details_image_large {
+	width: 100%;
+}
+.details_image_large img {
+	max-width: 100%;
+}
+.details_image_thumbnails {
+	margin-top: 17px;
+}
+.details_image_thumbnail {
+	width: calc((100% - 51px) / 4);
+	cursor: pointer;
+}
+.details_image_thumbnail::after {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: solid 2px #1b1b1b;
+	content: '';
+	background: transparent;
+	pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.details_image_thumbnail.active::after,
+.details_image_thumbnail:hover::after {
+	visibility: visible;
+	opacity: 1;
+}
+.details_image_thumbnail img {
+	max-width: 100%;
+}
+.product_name {
+	font-size: 30px;
+	font-weight: 600;
+	color: #232323;
+	line-height: 0.75;
+}
+.in_stock_container {
+	margin-top: 22px;
+}
+.availability {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	color: #6c6a74;
+}
+.in_stock_container span {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	color: #44a038;
+	margin-left: 5px;
+}
+.details_name {
+	font-size: 24px;
+	font-weight: 500;
+	color: #1b1b1b;
+	margin-top: -9px;
+}
+.details_discount {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+	color: #e95a5a;
+	margin-right: 20px;
+	text-decoration: line-through;
+}
+.details_price {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+	color: #6c6a74;
+	margin-top: 12px;
+}
+.details_text {
+	margin-top: 49px;
+}
+.details_text p {
+	font-weight: 500;
+}
+.product_quantity_container {
+	margin-top: 48px;
+}
+.product_quantity {
+	display: inline-block;
+	width: 147px;
+	height: 61px;
+	border: solid 2px #d0d0d0;
+	overflow: hidden;
+	padding-left: 78px;
+	vertical-align: middle;
+}
+.product_quantity span {
+	position: absolute;
+	top: 50%;
+	left: 23px;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 16px;
+	font-weight: 600;
+	color: #6c6a74;
+}
+.product_quantity input {
+	display: block;
+	width: 30px;
+	height: 57px;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1b1b1b;
+	text-align: left;
+	padding-left: 9px;
+	line-height: 39px;
+	float: left;
+}
+.quantity_buttons {
+	position: absolute;
+	top: 0;
+	right: 1px;
+	height: 100%;
+	width: 29px;
+}
+.quantity_inc, 
+.quantity_dec {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+	cursor: pointer;
+}
+.quantity_control i {
+	font-size: 10px;
+	color: #232323;
+	pointer-events: none;
+}
+.quantity_control:active {
+	border: solid 1px rgba(14, 140, 228, 0.2);
+}
+.quantity_inc {
+	padding-bottom: 3px;
+	justify-content: flex-end;
+}
+.quantity_inc i {
+	-webkit-transform: translateY(3px);
+	-moz-transform: translateY(3px);
+	-ms-transform: translateY(3px);
+	-o-transform: translateY(3px);
+	transform: translateY(3px);
+}
+.quantity_dec {
+	padding-top: 3px;
+	justify-content: flex-start;
+}
+.quantity_dec i {
+	-webkit-transform: translateY(-3px);
+	-moz-transform: translateY(-3px);
+	-ms-transform: translateY(-3px);
+	-o-transform: translateY(-3px);
+	transform: translateY(-3px);
+}
+.cart_button {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 13px;
+}
+.cart_button::after {
+	background: #1b1b1b;
+}
+.details_share {
+	margin-top: 51px;
+	border-top: solid 1px #d0d0d0;
+}
+.details_share span {
+	display: inline-block;
+}
+.details_share ul {
+	display: inline-block;
+	margin-top: 31px;
+	margin-left: 41px;
+}
+.details_share ul li {
+	display: inline-block;
+}
+.details_share ul li:not(:last-child) {
+	margin-right: 18px;
+}
+.details_share ul li a i {
+	font-size: 16px;
+	color: #b5b5b5;
+	padding: 5px;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.details_share ul li a i:hover {
+	color: #1b1b1b;
+}
+.description_row {
+	margin-top: 91px;
+}
+.description_title {
+	display: inline-block;
+	font-size: 24px;
+	font-weight: 500;
+	color: #1b1b1b;
+}
+.reviews_title {
+	display: inline-block;
+	margin-left: 41px;
+}
+.reviews_title a {
+	font-size: 24px;
+	font-weight: 500;
+	color: #6c6a74;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.reviews_title a:hover {
+	color: #1b1b1b;
+}
+.description_text {
+	margin-top: 44px;
+}
+
+/*********************************
+7. Products
+*********************************/
+.products_title {
+	font-size: 30px;
+	font-weight: 500;
+	color: #1b1b1b;
+}
+.product_grid {
+	margin-top: 88px;
+}
+</style>
