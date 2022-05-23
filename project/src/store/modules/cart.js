@@ -70,12 +70,11 @@ export default {
         },
 
         async changeItemAmount({ commit, state }, pl) {
-            const { id, value } = pl;
-            const item = state.cartData.items.find(el => el.id === id);
+            const { item, value } = pl;
             try {
-                const response = await cart.changeItemAmount(id, { value: value});
+                const response = await cart.changeItemAmount(item.id, { value: value});
                 if (response) {
-                    commit('changeItemAmount', { item, value });
+                    commit('changeItemAmount', { item: item, value: value });
                 }
             }
             catch (err) {

@@ -226,7 +226,7 @@ section {
 	cursor: pointer;
 }
 
-.button a {
+.button span {
 	display: block;
 	position: relative;
 	font-size: 16px;
@@ -272,15 +272,15 @@ section {
 	border: solid 2px #FFFFFF;
 }
 
-.button_light a {
+.button_light span {
 	color: #FFFFFF;
 }
 
-.button:hover a {
+.button:hover span {
 	color: #FFFFFF;
 }
 
-.button_light:hover a {
+.button_light:hover span {
 	color: #1b1b1b;
 }
 

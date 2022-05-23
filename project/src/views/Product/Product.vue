@@ -6,14 +6,10 @@
 	  <div class="product_details" v-if="!loading">
 		<div class="container">
 			<div class="row details_row">
-
-				<!-- Product Image -->
 				<div class="col-lg-6">
 					<ProductGallery :item="product"/>
 				</div>
 				
-
-				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
 						<div class="details_name">{{ product.title }}</div>
@@ -26,14 +22,7 @@
 							<span>In Stock</span>
 						</div>
 						<div class="details_text">
-							<p>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                aliquyam erat, sed diam voluptua. Phasellus id nisi quis
-                                justo tempus mollis sed et dui. In hac habitasse platea dictumst.
-                                Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris
-                                consequat nisi ut mauris efficitur lacinia.
-                            </p>
+							<p>{{ product.specification }}</p>
 						</div>
 
 						<!-- Product Quantity -->
@@ -54,7 +43,7 @@
 								v-if="!loadingChange"
 								@click="changeAmount"
 							>
-								<a href="#">Add to cart</a>
+								<span>Add to cart</span>
 							</div>
 						</div>
                         <Socials class="details_share" :text="'Share:'"/>
@@ -66,18 +55,9 @@
 				<div class="col">
 					<div class="description_title_container">
 						<div class="description_title">Description</div>
-						<div class="reviews_title">
-                            <a href="#">Reviews <span>(1)</span></a>
-                        </div>
 					</div>
 					<div class="description_text">
-						<p>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                            sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui.
-                            In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. 
-                            Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.
-                        </p>
+						<p>{{ product.description }}</p>
 					</div>
 				</div>
 			</div>
@@ -115,7 +95,7 @@ export default {
 		async changeAmount() {
 			this.loadingChange = true;
 			try {
-				await this.changeItemAmount({ id: +this.$route.params.id, value: this.amount });
+				await this.changeItemAmount({ item: this.product, value: this.amount });
 			}
 			catch (err) {
 				throw err;
@@ -155,9 +135,6 @@ export default {
 </script>
 
 <style>
-/*********************************
-6. Product Details
-*********************************/
 
 .product_details {
 	width: 100%;
@@ -351,30 +328,10 @@ export default {
 	font-weight: 500;
 	color: #1b1b1b;
 }
-.reviews_title {
-	display: inline-block;
-	margin-left: 41px;
-}
-.reviews_title a {
-	font-size: 24px;
-	font-weight: 500;
-	color: #6c6a74;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.reviews_title a:hover {
-	color: #1b1b1b;
-}
 .description_text {
 	margin-top: 44px;
 }
 
-/*********************************
-7. Products
-*********************************/
 .products_title {
 	font-size: 30px;
 	font-weight: 500;

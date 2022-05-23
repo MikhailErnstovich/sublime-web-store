@@ -16,7 +16,7 @@
                 <div class="home_slider_title">{{ slide.title }}</div>
                 <div class="home_slider_subtitle">{{ slide.subtitle }}</div>
                 <div class="button button_light home_button">
-                  <a href="#">{{ slide.linkText }}</a>
+                  <span>{{ slide.linkText }}</span>
                 </div>
             </div>
         </slide>
@@ -191,7 +191,7 @@ export default {
     width: 148px;
     height: 41px;
   }
-  .button a {
+  .button span {
     font-size: 13px;
     line-height: 37px;
   }

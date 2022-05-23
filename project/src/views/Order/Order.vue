@@ -78,7 +78,9 @@
 								</li>
 							</ul>
 						</div>
-						<div class="button checkout_button"><a href="#">Proceed to checkout</a></div>
+						<div class="button checkout_button">
+							<span>Proceed to checkout</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -367,7 +369,9 @@ label {
 .checkout_button {
 	width: 100%;
 }
-
+.checkout_button::after {
+	background: #1b1b1b;
+}
 @media only screen and (max-width: 991px) {
 	.order_info_columns {
 		display: none;

@@ -37,7 +37,7 @@ module.exports = {
     },
 
 
-    addNewItem(cart, catalog, id, amount = 1) {
+    addNewItem(cart, catalog, id) {
         return new Promise((res, rej) => {
             const item = catalog.items.find(el => el.id === id);
             if (item) {
@@ -46,7 +46,7 @@ module.exports = {
                     cart.items.push(item);
                     res(JSON.stringify(cart));
                 } else {
-                    cart.items.find(el => el.id === id).amount = amount;
+                    cart.items.find(el => el.id === id).amount++;
                     res(JSON.stringify(cart));
                 }
             }

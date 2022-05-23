@@ -76,7 +76,7 @@ server.post('/catalog/:id', async (req, res) => {
     try {
         const cartData = await reader(path + 'cart.json', options);
         const catalogData = await reader(path + 'catalog.json', options);
-        cart.addNewItem(cartData, catalogData, +req.params.id, amount)
+        cart.addNewItem(cartData, catalogData, +req.params.id)
             .then(async d => await writer(path + 'cart.json', d))
             .then(d => res.json(d));
     } catch (err) {
