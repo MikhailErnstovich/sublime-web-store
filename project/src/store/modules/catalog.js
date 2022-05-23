@@ -44,7 +44,7 @@ export default {
             return state.catalogData.stickerTypes;
         },
         getProduct(state) {
-            return state.productData || 'loading...';
+            return state.productData;
         }
     }
 }

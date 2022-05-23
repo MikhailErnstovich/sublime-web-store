@@ -21,9 +21,9 @@ export const cart = {
         }
     },
 
-    async addItem(idObj) {
+    async addItem(pl) {
         try {
-            const data = await instance({ method: 'POST', url: `/catalog/${idObj.id}`, data: idObj});
+            const data = await instance({ method: 'POST', url: `/catalog/${pl.id}`, data: pl});
             return data;
         }
         catch (err) {
@@ -44,6 +44,16 @@ export const cart = {
     async decrementAmount(id, body) {
         try {
             const data = await instance({ method: 'PUT', url: `/cart/${id}`, data: body });
+            return data;
+        }
+        catch (err) {
+            throw err;
+        }
+    },
+
+    async changeItemAmount(id, body) {
+        try {
+            const data = await instance({ method: 'PUT', url: `/product/${id}`, data: body });
             return data;
         }
         catch (err) {

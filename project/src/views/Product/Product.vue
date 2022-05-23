@@ -3,13 +3,13 @@
 <div class="super_container">
     <Header />
     <SideMenu />
-	  <div class="product_details">
+	  <div class="product_details" v-if="!loading">
 		<div class="container">
 			<div class="row details_row">
 
 				<!-- Product Image -->
 				<div class="col-lg-6">
-					<ProductGallery :product="product"/>
+					<ProductGallery :item="product"/>
 				</div>
 				
 
@@ -40,17 +40,22 @@
 						<div class="product_quantity_container">
 							<div class="product_quantity clearfix">
 								<span>Qty</span>
-								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+								<input type="text" :value="amount">
 								<div class="quantity_buttons">
-									<div id="quantity_inc_button" class="quantity_inc quantity_control" data-qty="1">
-                                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+									<div class="quantity_inc quantity_control" @click="increment">
+                                        <i class="fa fa-chevron-up"></i>
                                     </div>
-									<div id="quantity_dec_button" class="quantity_dec quantity_control" data-qty="-1">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+									<div class="quantity_dec quantity_control" @click="decrement">
+                                        <i class="fa fa-chevron-down"></i>
                                     </div>
 								</div>
 							</div>
-							<div class="button cart_button"><a href="#">Add to cart</a></div>
+							<div class="button cart_button"
+								v-if="!loadingChange"
+								@click="changeAmount"
+							>
+								<a href="#">Add to cart</a>
+							</div>
 						</div>
                         <Socials class="details_share" :text="'Share:'"/>
 					</div>
@@ -95,24 +100,56 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
     name: 'Product',
     components: { Footer, Header, SideMenu, NewsLetter, Socials, ProductGallery },
+	data() {
+		return {
+			loading: true,
+			loadingChange: false,
+			amount: 1,
+		}
+	},
 	methods: {
 		...mapActions({
 			fetchProduct: 'Catalog/getProduct',
+			changeItemAmount: 'Cart/changeItemAmount',
 		}),
+		async changeAmount() {
+			this.loadingChange = true;
+			try {
+				await this.changeItemAmount({ id: +this.$route.params.id, value: this.amount });
+			}
+			catch (err) {
+				throw err;
+			}
+			finally {
+				this.amount = 1;
+				this.loadingChange = false;
+			}
+
+		},
+		increment() {
+			this.amount++;
+		}, 
+		decrement() {
+			this.amount !== 0 ? this.amount-- : this.amount = 0;
+		},
 	},
 	computed: {
 		...mapGetters({
 			product: 'Catalog/getProduct',
+			cartProducts: 'Cart/getCartItems',
 		}),	
 	},
 	async created() {
+		this.loading = true;
 		try {
-			const data = await this.fetchProduct(this.$route.params.id);
+			await this.fetchProduct(this.$route.params.id);
 		}
 		catch (err) {
 			throw err;
 		}
-
+		finally {
+			this.loading = false;
+		}
 	}	
 }
 </script>
@@ -131,52 +168,6 @@ export default {
 .details_row {
 	margin-top: 95px;
 }
-.details_image_large {
-	width: 100%;
-}
-.details_image_large img {
-	max-width: 100%;
-}
-.details_image_thumbnails {
-	margin-top: 17px;
-}
-.details_image_thumbnail {
-	width: calc((100% - 51px) / 4);
-	cursor: pointer;
-}
-.details_image_thumbnail::after {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: solid 2px #1b1b1b;
-	content: '';
-	background: transparent;
-	pointer-events: none;
-	visibility: hidden;
-	opacity: 0;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.details_image_thumbnail.active::after,
-.details_image_thumbnail:hover::after {
-	visibility: visible;
-	opacity: 1;
-}
-.details_image_thumbnail img {
-	max-width: 100%;
-}
-.product_name {
-	font-size: 30px;
-	font-weight: 600;
-	color: #232323;
-	line-height: 0.75;
-}
 .in_stock_container {
 	margin-top: 22px;
 }
@@ -192,6 +183,9 @@ export default {
 	font-weight: 500;
 	color: #44a038;
 	margin-left: 5px;
+}
+.details_content{
+	margin-top: 50px;
 }
 .details_name {
 	font-size: 24px;

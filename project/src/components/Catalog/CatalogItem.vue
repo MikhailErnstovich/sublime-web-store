@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <a class="product_image" @click="$router.push(`/catalog/${item.id}`)">
-      <img :src="imgURLTemplate + item.imgFileName" />
+      <img :src="imgURLTemplate + item.images[0]" />
     </a>
     <div
       class="product_extra"

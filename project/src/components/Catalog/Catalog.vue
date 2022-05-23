@@ -5,8 +5,8 @@
         <div class="col">
           <div class="catalog">
             <CatalogItem
-              v-for="item in items"
-              :key="item.id"
+              v-for="(item, i) in items"
+              :key="i"
               :item="item"
               :stickerTypes="stickerTypes"
               :imgURLTemplate="imgURLTemplate"

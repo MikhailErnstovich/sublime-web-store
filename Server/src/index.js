@@ -48,9 +48,24 @@ server.put('/cart/:id', async (req, res) => {
     const path = './src/public/cart.json';
     try {
         const data = await reader(path, options);
-        cart.changeItemAmount(data, +req.params.id, req.body.value)
+        cart.changeItemDiscrete(data, +req.params.id, req.body.value)
             .then(async d => await writer(path, d))
             .then(d => res.json(d));
+    } catch (err) {
+        throw err;
+    }
+});
+
+server.put('/product/:id', async (req, res) => {
+
+    const cartPath = './src/public/cart.json';
+    const catalogPath = './src/public/catalog.json';
+    try {
+        const cartData = await reader(cartPath, options);
+        const catalogData = await reader(catalogPath, options);
+        cart.changeAmount(cartData, catalogData, +req.params.id, req.body.value)
+        .then(async d => await writer(cartPath, d))
+        .then(d => res.json(d));
     } catch (err) {
         throw err;
     }
@@ -61,7 +76,7 @@ server.post('/catalog/:id', async (req, res) => {
     try {
         const cartData = await reader(path + 'cart.json', options);
         const catalogData = await reader(path + 'catalog.json', options);
-        cart.addNewItem(cartData, catalogData, +req.params.id)
+        cart.addNewItem(cartData, catalogData, +req.params.id, amount)
             .then(async d => await writer(path + 'cart.json', d))
             .then(d => res.json(d));
     } catch (err) {

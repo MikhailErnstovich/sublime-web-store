@@ -4,7 +4,7 @@
         <div class="order_item_product d-flex flex-row align-items-center justify-content-start">
             <div class="order_item_image">
                 <div>
-                    <img :src="imgURLTemplate + item.imgFileName">
+                    <img :src="imgURLTemplate + item.images[0]">
                 </div>
             </div>
             <div class="order_item_name_container">
@@ -23,10 +23,10 @@
                     <b>{{ item.amount }}</b>
                     <div class="quantity_buttons">
                         <div id="quantity_inc_button" class="quantity_inc quantity_control" @click="increment">
-                            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-up"></i>
                         </div>
                         <div id="quantity_dec_button" class="quantity_dec quantity_control" @click="decrement">
-                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down"></i>
                         </div>
                     </div>
                 </div>

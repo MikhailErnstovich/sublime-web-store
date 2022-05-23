@@ -67,7 +67,21 @@ export default {
             catch (err) {
                 throw err;
             }
-        }
+        },
+
+        async changeItemAmount({ commit, state }, pl) {
+            const { id, value } = pl;
+            const item = state.cartData.items.find(el => el.id === id);
+            try {
+                const response = await cart.changeItemAmount(id, { value: value});
+                if (response) {
+                    commit('changeItemAmount', { item, value });
+                }
+            }
+            catch (err) {
+                throw err;
+            }
+        },
 
 
     },
@@ -99,6 +113,17 @@ export default {
             } else {
                 state.cartData.items.push(item);
             }
+        },
+
+        changeItemAmount(state, pl) {
+            const { item, value } = pl;
+            const cartItem = state.cartData.items.find(el => el.id === item.id);
+            if (cartItem) {
+                cartItem.amount += value;
+            } else {
+                item.amount = value;
+                state.cartData.items.push(item);
+            }
         }
     },
 
@@ -109,6 +134,7 @@ export default {
         
         cartCounter(state) {
             return state.cartData.items.reduce((acc, cur) => acc + cur.amount, 0);
-        }
+        },
+
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class='cart-item'>
-    <img class='cart-item__img' :src='imgURLTemplate + item.imgFileName' />
+    <img class='cart-item__img' :src='imgURLTemplate + item.images[0]' />
     <div class='cart-item__info'>
       <span class='cart-item__title'>{{ item.title }}</span>
       <div class='cart-item__order'>

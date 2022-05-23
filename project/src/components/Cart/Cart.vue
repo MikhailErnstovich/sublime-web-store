@@ -13,8 +13,8 @@
     </button>
     <div class='cart__content' id='cart__items' v-show='cartToggle'>
       <CartItem
-        v-for='item in items'
-        :key='item.id'
+        v-for='(item, i) in items'
+        :key='i'
         :item='item'
         :imgURLTemplate='imgURLTemplate'
         @remove='removeItem'

@@ -6,7 +6,7 @@ module.exports = {
         })
     },
 
-    changeItemAmount(cart, id, value) {
+    changeItemDiscrete(cart, id, value) {
         return new Promise((res, rej) => {
             const item = cart.items.find(el => el.id === id);
             if (item) {
@@ -21,7 +21,23 @@ module.exports = {
         });
     },
 
-    addNewItem(cart, catalog, id) {
+    changeAmount(cart, catalog, id, value) {
+        return new Promise((res, rej) => {
+            let item = cart.items.find(el => el.id === id);
+            if (item) {
+                item.amount += value;
+                res(JSON.stringify(cart));
+            } else {
+                item = catalog.items.find(el => el.id === id);
+                item.amount = value;
+                cart.items.push(item);
+                res(JSON.stringify(cart));
+            }
+        });
+    },
+
+
+    addNewItem(cart, catalog, id, amount = 1) {
         return new Promise((res, rej) => {
             const item = catalog.items.find(el => el.id === id);
             if (item) {
@@ -30,7 +46,7 @@ module.exports = {
                     cart.items.push(item);
                     res(JSON.stringify(cart));
                 } else {
-                    cart.items.find(el => el.id === id).amount++;
+                    cart.items.find(el => el.id === id).amount = amount;
                     res(JSON.stringify(cart));
                 }
             }
