@@ -9,7 +9,7 @@
             </div>
             <div class="order_item_name_container">
                 <div class="order_item_name">
-                    <a href="#">{{ item.title }}</a>
+                    <span @click="$router.push(`/catalog/${item.id}`)">{{ item.title }}</span>
                 </div>
             </div>
         </div>
@@ -86,34 +86,19 @@ export default {
 .order_item_name_container {
 	padding-left: 36px;
 }
-.order_item_name a {
+.order_item_name span{
 	font-size: 18px;
 	font-weight: 500;
 	color: #1b1b1b;
+	cursor: pointer;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.order_item_name a:hover {
+.order_item_name span:hover {
 	color: #e95a5a;
-}
-.order_item_edit {
-	margin-top: 3px;
-}
-.order_item_edit a{
-	font-size: 14px;
-	font-weight: 500;
-	color: #6c6a74;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-.order_item_edit a:hover{
-	color: #1b1b1b;
 }
 .order_item_price{
 	font-size: 14px;

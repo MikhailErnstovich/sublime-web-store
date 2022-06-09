@@ -12,7 +12,7 @@
     </div>
     <div class="product_content">
       <div class="product_title">
-        <a :href="item.link">{{ item.title }}</a>
+        <span @click="$router.push(`/catalog/${item.id}`)">{{ item.title }}</span>
       </div>
       <div class="product_price">$ {{ item.price }}</div>
     </div>
@@ -45,6 +45,7 @@ export default {
 }
 .product_image {
   width: 100%;
+  cursor: pointer;
 }
 .product_image img {
   max-width: 100%;
@@ -54,18 +55,19 @@ export default {
   padding-top: 36px;
   padding-bottom: 38px;
 }
-.product_title a {
+.product_title span {
   font-size: 18px;
   font-weight: 500;
   color: #1b1b1b;
   line-height: 1.1;
+  cursor: pointer;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
 }
-.product_title a:hover {
+.product_title span:hover {
   color: #e95a5a;
 }
 .product_price {

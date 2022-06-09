@@ -12,11 +12,26 @@ const options = { encoding: 'utf-8' };
 server.use(express.json());
 
 server.get('/:comp', async (req, res) => {
-    const path = `./src/public/${req.params.comp}.json`;
-    try {
-        res.json(await reader(path, options));
-    } catch (err) {
-        throw err;
+    switch (req.params.comp) {
+        case 'suggestion': 
+            try {
+                const catalog = await reader('./src/public/catalog.json', options);
+                const result = {
+                    items: catalog.items.filter(el => el.sticker).slice(0, 8),
+                    stickerTypes: catalog.stickerTypes
+                }
+                res.json(result);
+            } catch (err) {
+                throw err;
+            }
+            break;
+        default:
+            const path = `./src/public/${req.params.comp}.json`;
+            try {
+                res.json(await reader(path, options));
+            } catch (err) {
+                throw err;
+            }
     }
 });
 
@@ -31,6 +46,18 @@ server.get('/catalog/:id', async (req, res) => {
         throw err;
     }
 });
+
+server.get('/suggestion', async (req, res) => {
+    const path = './src/public/catalog.json';
+    try {
+        const catalog = await reader(path, options);
+        const result = catalog.items.filter(el => el.sticker);
+        res.json(result);
+    } catch (err) {
+        throw err;
+    }
+});
+
 
 server.delete('/cart/:id', async (req, res) => {
     const path = './src/public/cart.json';

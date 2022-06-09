@@ -40,15 +40,7 @@
         ]
     },
     {
-        "text": "Accessories",
-        "link": "#"
-    },
-    {
-        "text": "Offers",
-        "link": "#"
-    },
-    {
         "text": "Contact",
-        "link": "#"
+        "link": "/contact"
     }
 ]
