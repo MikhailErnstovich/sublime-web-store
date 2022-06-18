@@ -9,9 +9,15 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "CloseBtn",
   props: ["type"],
+    watch: {
+    async $route(to, from) {
+      this.closeSideMenu();
+    }
+  },
   methods: {
     ...mapActions({
       toggleSideMenu: "SideMenu/toggleSideMenu",
+      closeSideMenu: "SideMenu/closeSideMenu",
     }),
   }
 };

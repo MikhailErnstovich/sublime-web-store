@@ -20,8 +20,8 @@
 
 <script>
 export default {
-    name: 'Socials',
-    props: ['text']
+    name: "Socials",
+    props: ["text"]
 };
 </script>
 

@@ -1,43 +1,43 @@
 <template>
-  <div class='shopping_cart'>
-    <button id='cartToggle' @click='showCart()'>
+  <div class="shopping_cart">
+    <button id="cartToggle" @click="showCart()">
       <img
-        class='cart__icon'
-        src='https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/shopping.svg'
-        alt='cart icon'
+        class="cart__icon"
+        src="https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/shopping.svg"
+        alt="cart icon"
       />
       <div>
         Cart
-        <span id='cart__counter'>({{ cartCounter }})</span>
+        <span id="cart__counter">({{ cartCounter }})</span>
       </div>
     </button>
-    <div class='cart__content' id='cart__items' v-show='cartToggle'>
+    <div class="cart__content" id="cart__items" v-show="cartToggle">
       <CartItem
-        v-for='(item, i) in items'
-        :key='i'
-        :item='item'
-        :imgURLTemplate='imgURLTemplate'
-        @remove='removeItem'
-        @increment='incrementItemAmount'
-        @decrement='decrementItemAmount'
+        v-for="(item, i) in items"
+        :key="i"
+        :item="item"
+        :imgURLTemplate="imgURLTemplate"
+        @remove="removeItem"
+        @increment="incrementItemAmount"
+        @decrement="decrementItemAmount"
       />
     </div>
   </div>
 </template>
 
 <script>
-import CartItem from './CartItem.vue'
-import { mapState, mapGetters, mapActions } from 'vuex';
+import CartItem from "./CartItem.vue"
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'Cart',
+  name: "Cart",
   components: { CartItem },
   data: function () {
     return {
       cartToggle: false,
-      URL: '/api/cart',
+      URL: "/api/cart",
       imgURLTemplate:
-        'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
+        "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
       interval: null,
     };
   },
@@ -47,17 +47,17 @@ export default {
     },
 
     ...mapActions({
-      getCart: 'Cart/getCart',
-      removeItem: 'Cart/removeItem',
-      incrementItemAmount: 'Cart/incrementItemAmount',
-      decrementItemAmount: 'Cart/decrementItemAmount'
+      getCart: "Cart/getCart",
+      removeItem: "Cart/removeItem",
+      incrementItemAmount: "Cart/incrementItemAmount",
+      decrementItemAmount: "Cart/decrementItemAmount"
     }),
   },
 
   computed: {
     ...mapGetters({
-      items: 'Cart/getCartItems',
-      cartCounter: 'Cart/cartCounter'
+      items: "Cart/getCartItems",
+      cartCounter: "Cart/cartCounter"
     }),
   },
   
@@ -148,19 +148,29 @@ export default {
   padding: 10px 0;
   border-bottom: 1px solid #dddddd;
 }
+.cart-item a:first-child {
+  display: flex;
+}
 
 .cart-item__img {
   width: 40px;
   height: auto;
   object-fit: contain;
+  cursor: pointer;
 }
 
-.cart-item___info {
+.cart-item__info {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-
+.cart-item__title,
+.cart-item__title:active,
+.cart-item__title:visited {
+  color: #000;
+}
+.cart-item__title:hover{
+  color: #dc3545;
+}
 .cart__delete-btn {
   display: block;
   background: none;
@@ -185,16 +195,16 @@ export default {
 }
 
 .cart-item__price::before {
-  content: 'Price:';
+  content: "Price:";
   margin-right: 15px;
 }
 
 .cart-item__price::after {
-  content: '$';
+  content: "$";
 }
 
 .cart-item__amount::before {
-  content: 'Amount: ';
+  content: "Amount: ";
   margin-right: 15px;
 }
 

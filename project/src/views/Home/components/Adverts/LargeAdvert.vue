@@ -15,7 +15,7 @@
           fermentum luctus.
         </div>
         <div class="avds_link avds_link_large">
-          <a href="categories.html">See More</a>
+          <a href="" @click.prevent="$router.push('/categories')">See More</a>
         </div>
       </div>
     </div>
@@ -53,17 +53,17 @@ export default {
   margin-top: 40px;
 }
 @media only screen and (max-width: 991px) {
-	.avds_large	{
-		width: 100%;
-		height: 490px;
-		margin-top: 30px;
-	}
+  .avds_large  {
+    width: 100%;
+    height: 490px;
+    margin-top: 30px;
+  }
 }
 @media only screen and (max-width: 575px) {
-	.avds_large_content {
-		max-width: calc(100% - 30px);
+  .avds_large_content {
+    max-width: calc(100% - 30px);
     padding-right: 30px;
-	}
+  }
 }
 
 </style>

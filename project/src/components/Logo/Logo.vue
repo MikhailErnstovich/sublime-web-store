@@ -1,12 +1,12 @@
 <template>
   <div class="logo">
-    <router-link :to='"/"'>Sublime.</router-link>
+    <router-link :to="'/'">Sublime.</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'Logo'
+    name: "Logo"
 };
 </script>
 

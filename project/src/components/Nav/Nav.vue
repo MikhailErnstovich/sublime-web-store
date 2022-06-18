@@ -1,28 +1,28 @@
 <template>
-  <nav class='main_nav' id='main_nav' v-if='ready'>
+  <nav class="main_nav" id="main_nav" v-if="ready">
     <ul>
       <NavSubMenu
-        v-for='item in items'
-        :key='item.text'
-        :item='item'
-        :ready='ready'
+        v-for="item in items"
+        :key="item.text"
+        :item="item"
+        :ready="ready"
       />
     </ul>
   </nav>
 </template>
 
 <script>
-import NavSubMenu from './NavSubMenu.vue';
-import { nav } from '@api';
+import NavSubMenu from "./NavSubMenu.vue";
+import { nav } from "@api";
 import { mapState, mapGetters, mapActions } from "vuex";
 
 
 export default {
-  name: 'Nav',
+  name: "Nav",
   components: { NavSubMenu },
   data: function () {
     return {
-      URL: '/api/menu',
+      URL: "/api/menu",
       items: [],
       ready: false
     };
@@ -85,9 +85,9 @@ export default {
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 	left: calc(100% + 3px);
-	font-family: 'FontAwesome';
+	font-family: "FontAwesome";
 	font-size: 10px;
-	content: '\f078';
+	content: "\f078";
 	color: #767676;
 }
 .main_nav ul li:hover::after,

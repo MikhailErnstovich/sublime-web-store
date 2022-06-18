@@ -46,10 +46,10 @@ export default {
   methods: {
     handleScroll(evt, el) {
       if (window.scrollY > 100) {
-        el.classList.add('scrolled');
+        el.classList.add("scrolled");
       } else {
-		el.classList.remove('scrolled');
-	  }
+		    el.classList.remove("scrolled");
+	    }
     },
   },
   directives: {

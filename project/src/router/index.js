@@ -17,6 +17,11 @@ const routes = [
     component: Categories,
   },
   {
+    path: '/categories/:category?',
+    name: 'categories',
+    component: Categories,
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: Order

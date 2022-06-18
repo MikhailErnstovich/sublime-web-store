@@ -16,7 +16,6 @@
                 d-flex
                 flex-lg-row flex-column
                 align-items-center
-                justify-content-between
               "
             >
               <Logo />
@@ -64,6 +63,7 @@ export default {
   background-position: center center;
 }
 .footer_content {
+  justify-content: space-between;
   width: 100%;
   height: 129px;
 }
@@ -104,6 +104,7 @@ export default {
 	}
 	.footer_content	{
 		height: 200px;
+    justify-content: space-around;
 	}
 	.footer_logo,
 	.footer_social	{

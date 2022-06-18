@@ -16,7 +16,7 @@
                 <div class="home_slider_title">{{ slide.title }}</div>
                 <div class="home_slider_subtitle">{{ slide.subtitle }}</div>
                 <div class="button button_light home_button">
-                  <span>{{ slide.linkText }}</span>
+                  <span @click="$router.push('/categories')">{{ slide.linkText }}</span>
                 </div>
             </div>
         </slide>
@@ -110,7 +110,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-
 .home_slider_title {
   font-size: 60px;
   font-weight: 600;
@@ -128,16 +127,16 @@ export default {
   margin-top: 40px;
 }
 .carousel__pagination {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    width: 100%;
-    padding-left: 60px;
-    padding-right: 60px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .carousel__pagination-button{
   width: 10px;

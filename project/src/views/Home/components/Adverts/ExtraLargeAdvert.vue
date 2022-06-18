@@ -17,7 +17,7 @@
                 a ultricies metus.
               </div>
               <div class="avds_link avds_xl_link">
-                <a href="categories.html">See More</a>
+                <a href="" @click.prevent="$router.push('/categories')">See More</a>
               </div>
             </div>
           </div>
@@ -71,16 +71,16 @@ export default {
 }
 
 @media only screen and (max-width: 767px){
-	.avds_xl_container {
-		padding: 30px;
-	}
-	.avds_xl_content {
-		width: 100%;
-	}
+  .avds_xl_container {
+    padding: 30px;
+  }
+  .avds_xl_content {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 479px) {
-	.avds_xl_content {
-		padding: 30px;
-	}
+  .avds_xl_content {
+    padding: 30px;
+  }
 }
 </style>
